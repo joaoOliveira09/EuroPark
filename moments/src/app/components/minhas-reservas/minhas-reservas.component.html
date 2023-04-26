@@ -1,0 +1,42 @@
+<div class="home-container">
+    <h1>Veja as Suas Reservas:</h1>
+    <div class="search-container">
+       <form >
+           <fa-icon [icon]="faSearch"></fa-icon>
+           <input type="text" placeholder="Ou busque por uma reserva..."
+           (input)="search($event)">
+       </form>
+    </div>
+   <div>
+      <!-- <div *ngIf="moments && moments.length > 0; else noMoments"> -->
+       <div class="moments-container">
+   
+           <!-- <div class="moment" *ngFor="let moment of moments">
+               <h3>{{moment.responsibleName}}</h3>
+               <h3>Vaga: {{moment.parkingSpotNumber}}</h3>
+               <p class="date">Em: {{moment.registrationDate}}</p>
+                <p><a routerLink="moments/{{moment.id}}">Reservar</a></p>
+            </div> -->
+            <div class="moment" *ngFor="let usuario of usuarios">
+               <h3>Veículo: {{usuario}}</h3>
+               <h3>Data Incial: 23/04</h3>
+               <h3>Data Final: 28/04</h3>
+               <h3>Valor Pago: R$50,00</h3>
+               <!-- <h3>Forma de Pagamento: À Vista</h3> -->
+                <input class="input" type="submit" routerLink="edit" value="Editar">                
+            </div>
+            <div class="moment">
+                <h3>Veículo: Amarok</h3>
+                <h3>Data Incial: 26/04</h3>
+                <h3>Data Final: 30/04</h3>
+                <h3>Valor Pago: R$80,00</h3>
+                <!-- <h3>Forma de Pagamento: À Vista</h3> -->
+                 <input class="input" type="submit" routerLink="edit" value="Editar">
+             </div>
+       </div>
+   </div>
+    <!-- <ng-template #noMoments>
+       <h1>Não Há Vagas Cadastradas</h1>
+    </ng-template> -->
+   </div>
+   

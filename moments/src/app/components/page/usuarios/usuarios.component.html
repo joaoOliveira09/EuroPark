@@ -1,0 +1,91 @@
+<form
+        class="form-group"
+        (ngSubmit)="cadastrar()"
+        [formGroup]="formCadastrar"
+        #formDir="ngForm"
+      >
+        <h2><span>{{titulo}} Usuários</span></h2>
+        <div class="form-group">
+          <label for="username">Seu nome:</label>
+          <input
+            type="text"
+            required
+            placeholder="Coloque o seu nome"
+            maxlength="50"
+            formControlName="username"
+          />
+        </div>
+        <div *ngIf="username.invalid && formDir.submitted" class="validation-error">
+          <p *ngIf="username.errors?.['required']">O Nome é Obrigatório.</p>
+      </div>
+
+        <div class="form-group">
+          <label for="senha">Senha:</label>
+          <input
+            type="password"
+            required
+            placeholder="Coloque sua Senha"
+            maxlength="8"
+            formControlName="senha"
+          />
+        </div>
+        <div *ngIf="senha.invalid && formDir.submitted" class="validation-error">
+          <p *ngIf="senha.errors?.['required']">A Senha é Obrigatória.</p>
+      </div>
+
+      <div class="form-group">
+        <label for="numeroApartamento;">Número do Apartamento:</label>
+        <input
+          type="number"
+          pattern="[0-9]+"
+          title="Por favor, digite apenas numeros."
+          required
+          placeholder="Informe o Número do seu apartamento"
+          formControlName="numeroApartamento"
+          (input)="limit(numeroApartamentoid, $event)"
+          #numeroApartamentoid
+        />
+      </div>
+      <div *ngIf="numeroApartamento.invalid && formDir.submitted" class="validation-error">
+        <p *ngIf="numeroApartamento.errors?.['required']">O Número do Apartamento é Obrigatório.</p>
+    </div>
+
+    <div class="form-group">
+      <label for="bloco">Bloco:</label>
+      <input
+        type="text"
+        required
+        placeholder="Informe o seu Bloco"
+        maxlength="1"
+        formControlName="bloco"
+        (input)="soLetras(blocoid,$event )"
+        #blocoid
+      />
+    </div>
+    <div *ngIf="bloco.invalid && formDir.submitted" class="validation-error">
+      <p *ngIf="bloco.errors?.['required']">O Bloco é Obrigatório.</p>
+  </div>
+      <div class="form-group">
+        <input
+          type="hidden"
+          formControlName="permissao"
+        />
+      </div>
+
+        <input type="submit" value= {{titulo}}>
+      </form>
+<br>
+      <div class="moments-container" >
+        <div class="moment" *ngFor="let usuario of usuarios">
+          <h3>Nome: {{usuario.username}}</h3>
+          <h3>Apartamento: {{usuario.numeroApartamento}}</h3>
+          <h3>Bloco: {{usuario.bloco}}</h3>
+           <a class="edit-btn" (click)="editHandler(usuario.userId!)">
+            <fa-icon [icon]="faEdit"></fa-icon>Editar
+             </a>
+            <button class="remove-btn" (click)="removeHandler(usuario.userId!)">
+              <fa-icon [icon]="faTimes"></fa-icon>Excluir
+          </button>
+        </div>
+        </div>
+

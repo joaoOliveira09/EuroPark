@@ -1,0 +1,19 @@
+<nav>
+    <a class="brand" routerLink="/home">
+     <img src="/assets/logo.png" alt="Estacionamento"/>
+     <h2>Euro Park</h2>
+    </a>
+
+   
+
+
+    <ul class="links">
+        <li routerLinkActive="add"><a routerLink="/home">Home</a></li>
+        <li routerLinkActive="add"><a routerLink="/moments/new">Nova Vaga</a></li>
+        <li routerLinkActive="add"><a routerLink="/about">Sobre</a></li>
+        <li routerLinkActive="add"><a routerLink="/usuarios">Usuários</a></li>
+        <li routerLinkActive="add"><a routerLink="/minhasReservas">Minhas Reservas</a></li>
+        <button class="remove-btn" (click)="sair()">LogOut</button>
+    </ul>
+
+</nav>

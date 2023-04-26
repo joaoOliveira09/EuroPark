@@ -1,0 +1,75 @@
+<div class="home-container">
+ <h1>Veja as Vagas Cadastradas:</h1>
+ <div class="search-container">
+    <form >
+        <fa-icon [icon]="faSearch"></fa-icon>
+        <input type="text" placeholder="Ou busque por uma vaga..."
+        (input)="search($event)">
+    </form>
+ </div>
+<div>
+   <div *ngIf="moments && moments.length > 0; else noMoments">
+    <div class="moments-container">
+
+        <div class="moment" *ngFor="let moment of moments">
+            <h3>Vaga: {{moment.numeroVaga}}</h3>
+            <h3>Proprietário: {{moment.nomeProprietario}}</h3>
+            <h3>Valor: {{moment.valorPelaVaga}}</h3>
+            <p class="disponivel">{{moment.reservadoOuNao}}</p>
+            <p><a routerLink="moments/{{moment.id_vaga}}">Detalhes</a></p>
+            <input type="submit" routerLink="reservar/{{moment.id_vaga}}" value="Reservar">
+         </div>
+         <!-- <div class="moment">
+            <h3>Vaga: 45</h3>
+            <h3>Proprietário: João Vitor</h3>
+            <h3>Valor: R$50,00</h3>
+            <p class="disponivel">Díponivel</p>
+            <p><a routerLink="moments">Detalhes</a></p>
+             <input type="submit" routerLink="reservar" value="Reservar">
+         </div> -->
+         <!-- <div class="moment">
+            <h3>Vaga: 35</h3>
+            <h3>Proprietário: João Oliveira</h3>
+            <h3>Valor: R$80,00</h3>
+            <p class="reservado">Reservada</p>
+            <p><a routerLink="moments">Detalhes</a></p>
+             <input type="submit" routerLink="reservar" value="Reservar"> 
+         </div> -->
+         <!-- <div class="moment">
+            <h3>Vaga: 75</h3>
+            <h3>Proprietário: Rafael Oliveira</h3>
+            <h3>Valor: R$40,00</h3>
+            <p class="disponivel">Díponivel</p>
+            <p><a routerLink="moments/id">Detalhes</a></p>
+            <input type="submit" routerLink="reservar" value="Reservar">
+         </div>
+         <div class="moment">
+            <h3>Vaga: 10</h3>
+            <h3>Proprietário: João Pedro</h3>
+            <h3>Valor: R$55,00</h3>
+            <p class="disponivel">Díponivel</p>
+            <p><a routerLink="moments/id">Detalhes</a></p>
+            <input type="submit" routerLink="reservar" value="Reservar">
+         </div> -->
+         <!-- <div class="moment">
+            <h3>Vaga: 8</h3>
+            <h3>Proprietário: Vitor</h3>
+            <h3>Valor: R$60,00</h3>
+            <p class="reservado">Reservada</p>
+            <p><a routerLink="moments/id">Detalhes</a></p>
+             <input type="submit" routerLink="reservar" value="Reservar">
+         </div>
+         <div class="moment">
+            <h3>Vaga: 36</h3>
+            <h3>Proprietário: José Vitor</h3>
+            <h3>Valor: R$80,00</h3>
+            <p class="disponivel">Díponivel</p>
+            <p><a routerLink="moments/id">Detalhes</a></p>
+            <input type="submit" routerLink="reservar" value="Reservar">
+         </div> -->
+    </div>
+</div>
+ <ng-template #noMoments>
+    <h1>Não Há Vagas Cadastradas</h1>
+ </ng-template>
+</div>

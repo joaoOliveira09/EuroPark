@@ -1,0 +1,48 @@
+<form (ngSubmit)="Submit()" [formGroup]="momentForm" #formDir="ngForm" enctype="multipart/form-data">
+    <div class="form-group">
+        <label for="numeroVaga">Vaga:</label>
+        <input type="number" placeholder="Coloque o Número da Vaga" formControlName="numeroVaga" required/>
+
+        <div *ngIf="numeroVaga.invalid && formDir.submitted" class="validation-error">
+            <p *ngIf="numeroVaga.errors?.['required']">O Número da Vaga é Obrigatório.</p>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label for="nomeProprietario">Nome do Proprietário:</label>
+        <input type="text" placeholder="Digite o Nome do Proprietário" formControlName="nomeProprietario" required>        
+        <div *ngIf="nomeProprietario.invalid && formDir.submitted" class="validation-error">
+            <p *ngIf="nomeProprietario.errors?.['required']"> o Nome do Proprietário é Obrigatório.</p>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label for="valorPelaVaga">Valor:</label>
+        <input type="number" placeholder="Digite o Valor" formControlName="valorPelaVaga" required/>
+        <div *ngIf="valorPelaVaga.invalid && formDir.submitted" class="validation-error">
+            <p *ngIf="valorPelaVaga.errors?.['required']">O Valor é Obrigatório.</p>
+        </div>
+
+    </div>
+
+     <div class="form-group">
+        <label for="user">Proprietário:</label>
+         <select formControlName="user" *ngIf="usuarios" (change)="onSelectChange($event)">
+            <option value="" selected disabled>Selecione um Proprietário</option>
+            <option *ngFor="let usuario of usuarios"  label="{{usuario.username}}">{{usuario.userId}} </option>
+          </select> 
+         <div *ngIf="!selectedOption && formDir.submitted" class="validation-error">
+            <p>O Proprietário é Obrigatório.</p>
+        </div> 
+        
+        <!-- <input type="text" placeholder="Digite o Valor" formControlName="user" 
+        #inputNumberId required value="{{selectedOption}}" /> -->
+
+    </div>
+
+  <div class="form-group">
+    <input type="hidden"  formControlName="reservadoOuNao"/>
+  </div>
+    <input type="submit" value="{{btnText}}">
+
+</form>

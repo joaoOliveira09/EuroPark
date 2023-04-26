@@ -1,0 +1,52 @@
+<h2>Reservar a sua <span>Vaga</span>!</h2>
+<form 
+(ngSubmit)="Submit()" 
+[formGroup]="reservaForm" 
+#formDir="ngForm">
+    <div class="form-group">
+        <label for="descricaoVeiculo">Descrição Do Veículo:</label>
+        <input type="text" placeholder="Coloque a Descrição do seu Veículo" formControlName="descricaoVeiculo" required/>
+
+        <div *ngIf="descricaoVeiculo.invalid && formDir.submitted" class="validation-error">
+            <p *ngIf="descricaoVeiculo.errors?.['required']">A Descrição do Veículo é Obrigatória.</p>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label for="dataInicial">Data Inicial da Reserva:</label>
+        <input type="date" formControlName="dataInicial" required>        
+        <div *ngIf="dataInicial.invalid && formDir.submitted" class="validation-error">
+            <p *ngIf="dataInicial.errors?.['required']"> A Data Inicial é Obrigatória.</p>
+        </div>
+
+    </div>
+    <div class="form-group">
+        <label for="dataFinal">Data Final da Reserva:</label>
+        <input type="date" formControlName="dataFinal" required/>
+        <div *ngIf="dataFinal.invalid && formDir.submitted" class="validation-error">
+            <p *ngIf="dataFinal.errors?.['required']">A Data Final é Obrigatória.</p>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="valorPagamento">Valor Do Pagamento</label>
+        <input type="text" formControlName="valorPagamento" readonly/>
+        <!-- <div *ngIf="responsibleName.invalid && formDir.submitted" class="validation-error">
+            <p *ngIf="responsibleName.errors?.['required']">A Data Final é Obrigatória.</p>
+        </div> -->
+    </div>
+
+    <div class="form-group">
+        <label for="formaPagamento">Forma Do Pagamento</label>
+        <select formControlName="formaPagamento" (change)="onSelectChange($event)">
+            <option value="avista" selected>À Vista </option>
+            <option value="laranja">Pix</option>
+          </select>
+        <div *ngIf="formaPagamento.invalid && formDir.submitted" class="validation-error">
+            <p *ngIf="formaPagamento.errors?.['required']">A Forma De Pagamento é Obrigatória.</p>
+        </div>
+    </div>
+
+    <input type="submit" value="Reservar">
+
+</form>

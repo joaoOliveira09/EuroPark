@@ -1,0 +1,4 @@
+<div *ngIf="moment">
+    <h2>Editando a vaga de <span>{{moment.nomeProprietario}}</span>!</h2>
+     <app-moment-form (onSubmit)="editHandler($event)" [momentData]="moment" [btnText]="btnText"></app-moment-form> 
+</div>
