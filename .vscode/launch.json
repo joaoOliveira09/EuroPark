@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-ParkingControlApplication<Parking-control>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "br.csi.Parkingcontrol.ParkingControlApplication",
+            "projectName": "Parking-control",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}

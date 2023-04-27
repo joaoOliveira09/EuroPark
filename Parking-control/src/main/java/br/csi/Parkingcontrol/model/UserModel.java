@@ -49,4 +49,6 @@ public class UserModel implements Serializable {
     private String permissao;
     @Transient
     private String token;
+    //  @OneToMany(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    //  private List<VagaModel> orders = new ArrayList<>();
 }

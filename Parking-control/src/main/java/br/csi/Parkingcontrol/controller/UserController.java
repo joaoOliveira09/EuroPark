@@ -1,6 +1,10 @@
 package br.csi.Parkingcontrol.controller;
 
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.sql.SQLException;
 //import org.springframework.web.multipart.MultipartFile;
 import java.util.ArrayList;
 import java.util.UUID;
@@ -42,8 +46,17 @@ public class UserController {
     }
 
     @DeleteMapping("/{id}")
-    public void delete(@PathVariable("id") UUID id) {
-        this.userService.delete(id);
+    public ResponseEntity<Object>delete(@PathVariable("id") UUID id) {
+        //this.userService.delete(id);
+        try {
+             this.userService.delete(id);
+            // return ResponseEntity.ok("Usuário excluído com sucesso!");
+            return new ResponseEntity<>(HttpStatus.OK);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+         return new ResponseEntity<>("Não é Possível Excluir Esse Usuario",
+                 HttpStatus.BAD_REQUEST);
     }
 
     @PutMapping("/{id}")

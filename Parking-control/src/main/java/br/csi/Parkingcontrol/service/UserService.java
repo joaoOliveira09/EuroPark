@@ -1,8 +1,11 @@
 package br.csi.Parkingcontrol.service;
 
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.UUID;
 
+import org.hibernate.service.spi.ServiceException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 //import org.springframework.web.multipart.MultipartFile;
@@ -41,7 +44,7 @@ public class UserService {
 
     public void delete(UUID id) {
         this.userRepository.deleteById(id);
-    }
+    } 
 
     public void update(UUID id, UserModel user) {
         UserModel userUpdate = new UserModel();
