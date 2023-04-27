@@ -81,7 +81,7 @@ export class UsuariosComponent implements OnInit {
  removeHandler(id: String){
   this.service.removeUser(id).subscribe(()=>{
     this.refresh()
-    this.messageService.add("Usuário Excluido com sucesso!")
+   // this.messageService.add("Usuário Excluido com sucesso!")
   })
 
  }

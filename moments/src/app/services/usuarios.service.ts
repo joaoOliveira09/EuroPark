@@ -58,7 +58,20 @@ export class UsuariosService {
     removeUser(id: String){
       const url = `${this.apiUrl}/${id}`
 
-      return this.http.delete(url)
+      return this.http.delete(url).pipe(
+        tap(() => {
+
+          this.messageService.add('Usuário Excluido com Sucesso!')
+  
+        }),
+  
+        catchError((error) => {
+  
+          this.messageService.add(error.error)
+  
+          return of(false)
+  
+        }))
     }
 
 }
