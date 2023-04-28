@@ -40,7 +40,7 @@ export class MomentFormComponent implements OnInit {
     }) 
  
   this.momentForm = new FormGroup({
-    nomeProprietario: new FormControl(this.momentData ? this.momentData.nomeProprietario:'',[Validators.required]),
+    // nomeProprietario: new FormControl(this.momentData ? this.momentData.nomeProprietario:'',[Validators.required]),
     numeroVaga: new FormControl(this.momentData ? this.momentData.numeroVaga:'',[Validators.required]),
     reservadoOuNao: new FormControl(this.momentData ? this.momentData.reservadoOuNao:'false',[Validators.required]),
     valorPelaVaga: new FormControl(this.momentData ? this.momentData.valorPelaVaga:'',) ,
@@ -61,9 +61,9 @@ export class MomentFormComponent implements OnInit {
 
   
 
-  get nomeProprietario(){
-    return this.momentForm.get('nomeProprietario')!
-  }
+  // get nomeProprietario(){
+  //   return this.momentForm.get('nomeProprietario')!
+  // }
 
   get numeroVaga(){
     return this.momentForm.get('numeroVaga')!

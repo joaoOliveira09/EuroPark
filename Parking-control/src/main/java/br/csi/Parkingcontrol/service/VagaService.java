@@ -48,7 +48,7 @@ public class VagaService {
     public VagaModel update(UUID id, VagaModel vagaModel) {
         VagaModel vagaModel2 = vagaRepository.getReferenceById(id);
         //   if (!vagaModel.getNomeProprietario().isEmpty())
-              vagaModel2.setNomeProprietario(vagaModel.getNomeProprietario());
+            //   vagaModel2.setNomeProprietario(vagaModel.getNomeProprietario());
               vagaModel2.setNumeroVaga(vagaModel.getNumeroVaga());
               vagaModel2.setReservadoOuNao(vagaModel.getReservadoOuNao());
               vagaModel2.setValorPelaVaga(vagaModel.getValorPelaVaga());

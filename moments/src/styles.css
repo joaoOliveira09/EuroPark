@@ -1,10 +1,12 @@
-*{
+* {
   padding: 0;
   margin: 0;
   font-family: Arial, Helvetica, sans-serif;
   box-sizing: border-box;
   color: #111;
-  background-color: #ffc4d8;
+}
+body{
+    background-color: #9ffafc70;
 }
 a{
     text-decoration: none;
@@ -13,7 +15,7 @@ a{
 
 }
 a:hover{
-    color: #ffc4d8;;
+    color: #ffc4d8;
 }
 
 /* Form */
@@ -32,7 +34,7 @@ form{
     margin-bottom: 0.4em;
 }
 
-.form-group input, .form-group textarea{
+.form-group input, .form-group textarea,.form-group select{
     padding: 0.6em;
     color: #777;
     font-size: 0.8em;
@@ -46,7 +48,7 @@ input[type="submit"]{
     cursor: pointer;
     transition: 0.4s;
     color: #fff;
-
+    margin: 5px;
 }
 
 input[type="submit"]:hover{

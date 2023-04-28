@@ -1,6 +1,6 @@
 <div class="moment" *ngIf="moment">
     <h1>Vaga {{moment.numeroVaga}}</h1>
-    <h3>Proprietário: {{moment.nomeProprietario}}</h3>
+    <h3>Proprietário: {{moment.user!.username}}</h3>
     <p></p>
    <div class="about-moment">
     <h3>Valor:{{moment.valorPelaVaga}}</h3>

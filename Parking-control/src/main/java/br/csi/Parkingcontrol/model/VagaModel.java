@@ -21,15 +21,15 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "tb_vaga")
-public class VagaModel implements Serializable{
+public class VagaModel implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id_vaga")
     private UUID id_vaga;
-    @Column(name = "nomeProprietario")
-    private String nomeProprietario;
+    // @Column(name = "nomeProprietario")
+    // private String nomeProprietario;
     @Column(name = "numeroVaga")
     private int numeroVaga;
     @Column(name = "valorPelaVaga")
@@ -40,6 +40,6 @@ public class VagaModel implements Serializable{
     @JoinColumn(name = "id_user")
     private UserModel user;
 
-    //columnDefinition = "BOOLEAN DEFAULT 'false'"
+    // columnDefinition = "BOOLEAN DEFAULT 'false'"
 
 }

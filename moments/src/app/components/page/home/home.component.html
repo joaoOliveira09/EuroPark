@@ -9,13 +9,14 @@
  </div>
 <div>
    <div *ngIf="moments && moments.length > 0; else noMoments">
-    <div class="moments-container">
-
-        <div class="moment" *ngFor="let moment of moments">
+    <div class="card-container">
+        <div class="card" *ngFor="let moment of moments">
             <h3>Vaga: {{moment.numeroVaga}}</h3>
-            <h3>Proprietário: {{moment.nomeProprietario}}</h3>
+            <h3>Proprietário: {{moment.user!.username}}</h3>
             <h3>Valor: {{moment.valorPelaVaga}}</h3>
-            <p class="disponivel">{{moment.reservadoOuNao}}</p>
+
+            <p [ngClass]="moment.reservadoOuNao ? 'reservado' : 'disponivel'">{{moment.reservadoOuNao}}</p>
+
             <p><a routerLink="moments/{{moment.id_vaga}}">Detalhes</a></p>
             <input type="submit" routerLink="reservar/{{moment.id_vaga}}" value="Reservar">
          </div>
