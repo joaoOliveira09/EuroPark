@@ -16,6 +16,7 @@ import { UsuariosService } from './usuarios.service';
 export class ReservaService {
   private baseApiUrl = environment.API_URL
   private apiUrl = `${this.baseApiUrl}reserva`
+  private apiUrlMinhasReservas = `${this.baseApiUrl}minhaReserva`
   
   
 
@@ -33,16 +34,21 @@ export class ReservaService {
 
     return this.http.get<Reserva>(url)
   }
-  // getMinhasReservas(id : String): Observable<Reserva>{
-
-  // }
-
-
+  getMinhasReservas(id: string): Observable<Reserva[]>{
+    const url = `${this.apiUrlMinhasReservas}/${id}`
+    return  this.http.get<Reserva[]>(url)
+  }
 
   createReserva(formData: Reserva): Observable<Reserva | boolean>{
     console.log(formData)
-    // var usuario: Usuario = sessionStorage.getItem('token')?.sub
-    // formData.user = usuario
+
+// const dataInicial = new Date(formData.dataInicial!)
+// const dataFinal = new Date(formData.dataInicial!)
+// console.log(dataInicial)
+// console.log(dataFinal)
+// const diferenca = Math.abs(dataFinal.getTime() - dataInicial.getTime());
+
+
     return this.http.post<Reserva>(this.apiUrl, formData).pipe(
       tap(()=>{
       this.messageService.add('Reserva adicionada com Sucesso')

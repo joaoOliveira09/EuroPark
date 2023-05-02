@@ -37,13 +37,13 @@
     </div>
 
     <div class="form-group">
-        <label for="formaPagamento">Forma Do Pagamento</label>
+        <label for="formaPagamento">Pagamento</label>
         <select formControlName="formaPagamento" (change)="onSelectChange($event)">
-            <option value="avista" selected>À Vista </option>
-            <option value="laranja">Pix</option>
+            <option value="A vista" selected>À Vista </option>
+            <option value="Pix">Pix</option>
           </select>
         <div *ngIf="formaPagamento.invalid && formDir.submitted" class="validation-error">
-            <p *ngIf="formaPagamento.errors?.['required']">A Forma De Pagamento é Obrigatória.</p>
+            <p *ngIf="formaPagamento.errors?.['required']">A Forma de Pagamento é Obrigatória.</p>
         </div>
     </div>
 

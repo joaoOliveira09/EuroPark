@@ -23,7 +23,7 @@ nav{
     transition: 0.4s;
 }
 .brand:hover > h2{
-    color: #ffc4d8
+    color: #9ffafc70
 }
 .links a{
     padding: 0.1em 0.3em;

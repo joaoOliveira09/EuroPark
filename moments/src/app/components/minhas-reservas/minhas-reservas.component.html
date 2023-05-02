@@ -3,40 +3,26 @@
     <div class="search-container">
        <form >
            <fa-icon [icon]="faSearch"></fa-icon>
-           <input type="text" placeholder="Ou busque por uma reserva..."
+           <input type="text" placeholder="Ou busque pelo seu veículo..."
            (input)="search($event)">
        </form>
     </div>
    <div>
-      <!-- <div *ngIf="moments && moments.length > 0; else noMoments"> -->
-       <div class="moments-container">
+       <div *ngIf="reservas && reservas.length > 0; else noMoments">
+       <div class="card-container">
    
-           <!-- <div class="moment" *ngFor="let moment of moments">
-               <h3>{{moment.responsibleName}}</h3>
-               <h3>Vaga: {{moment.parkingSpotNumber}}</h3>
-               <p class="date">Em: {{moment.registrationDate}}</p>
-                <p><a routerLink="moments/{{moment.id}}">Reservar</a></p>
-            </div> -->
-            <div class="moment" *ngFor="let usuario of usuarios">
-               <h3>Veículo: {{usuario}}</h3>
-               <h3>Data Incial: 23/04</h3>
-               <h3>Data Final: 28/04</h3>
-               <h3>Valor Pago: R$50,00</h3>
-               <!-- <h3>Forma de Pagamento: À Vista</h3> -->
-                <input class="input" type="submit" routerLink="edit" value="Editar">                
+           <div class="card" *ngFor="let reserva of reservas">
+            <h3>Veículo:{{reserva.descricaoVeiculo}} </h3>
+            <h3>Data Incial: {{reserva.dataInicial}}</h3>
+            <h3>Data Final: {{reserva.dataFinal}}</h3>
+            <h3>Valor Pago: {{reserva.valorPagamento}}</h3>
+             <h3>Pagamento: {{reserva.formaPagamento}}</h3> 
+             <input class="input" type="submit" routerLink="edit" value="Editar">  
             </div>
-            <div class="moment">
-                <h3>Veículo: Amarok</h3>
-                <h3>Data Incial: 26/04</h3>
-                <h3>Data Final: 30/04</h3>
-                <h3>Valor Pago: R$80,00</h3>
-                <!-- <h3>Forma de Pagamento: À Vista</h3> -->
-                 <input class="input" type="submit" routerLink="edit" value="Editar">
-             </div>
        </div>
    </div>
-    <!-- <ng-template #noMoments>
-       <h1>Não Há Vagas Cadastradas</h1>
-    </ng-template> -->
+   <ng-template #noMoments>
+       <h1>Você Não Possui Reservas</h1>
+    </ng-template>
    </div>
    

@@ -4,7 +4,7 @@ import { Usuario } from "./usuario"
 export interface Reserva {
      id_reserva?: string
      descricaoVeiculo?: string
-     dataInicial?: Date
+     dataInicial?: string
      dataFinal?: string
      valorPagamento?: number
      formaPagamento?: string

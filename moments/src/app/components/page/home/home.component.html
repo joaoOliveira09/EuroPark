@@ -15,9 +15,13 @@
             <h3>Proprietário: {{moment.user!.username}}</h3>
             <h3>Valor: {{moment.valorPelaVaga}}</h3>
 
-            <p [ngClass]="moment.reservadoOuNao ? 'reservado' : 'disponivel'">{{moment.reservadoOuNao}}</p>
+            <!-- <p [ngClass]="moment.reservadoOuNao ? 'reservado' : 'disponivel'">{{moment.reservadoOuNao}}</p> -->
+<p [ngClass]="moment.reservadoOuNao ? 'reservado' : 'disponivel'">
+   {{moment.reservadoOuNao ? 'Reservada' : 'Disponível'}}</p>
 
-            <p><a routerLink="moments/{{moment.id_vaga}}">Detalhes</a></p>
+         
+
+            <p><b><a routerLink="moments/{{moment.id_vaga}}">Detalhes</a></b></p>
             <input type="submit" routerLink="reservar/{{moment.id_vaga}}" value="Reservar">
          </div>
          <!-- <div class="moment">

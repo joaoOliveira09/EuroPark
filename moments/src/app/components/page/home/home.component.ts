@@ -24,11 +24,6 @@ export class HomeComponent implements OnInit {
   ngOnInit(): void {
     this.momentService.getMoments().subscribe((items) =>{
       console.log(items)
-    // console.log(items)
-      //  items.map(item =>{
-      //     item.registrationDate = new Date(item.registrationDate!).toLocaleDateString('pt-BR')
-      //     ' Horário: ' + new Date(item.registrationDate!).toLocaleTimeString('pt-BR')
-      //   })
       this.allMoments = items
       this.moments = items
     })

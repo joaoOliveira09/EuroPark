@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { faEdit, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { Reserva } from 'src/app/interfaces/Reserva';
 import { Usuario } from 'src/app/interfaces/usuario';
+import { JwtService } from 'src/app/security/jwt.service';
 import { ReservaService } from 'src/app/services/reserva.service';
 
 @Component({
@@ -13,13 +15,27 @@ export class MinhasReservasComponent implements OnInit {
   faSearch = faSearch
   searchTerm: string = ''
   faEdit = faEdit
-  usuarios: Usuario[] = []
+  reservas: Reserva[] = []
+  allReservas: Reserva[] = []
 
-  constructor(private reservaService: ReservaService) { }
+  constructor(private reservaService: ReservaService,
+              private jwt: JwtService) { }
 
   ngOnInit(): void {
 
-    this.reservaService.getReservas()
+    let id  =  this.jwt.getTokenSub()
+
+    this.reservaService.getMinhasReservas(id).subscribe((items) =>{
+      console.log(items)
+      items.map(item =>{
+            item.dataInicial= new Date(item.dataInicial!).toLocaleDateString('pt-BR')
+            item.dataFinal= new Date(item.dataFinal!).toLocaleDateString('pt-BR')
+
+           })
+       this.allReservas = items
+       this.reservas = items
+             
+    })
   }
 
   search(event: Event): void{
@@ -27,9 +43,9 @@ export class MinhasReservasComponent implements OnInit {
     const target = event.target as HTMLInputElement
     const value = target.value
 
-    // this.moments = this.allMoments.filter(moment => {
-    //  return moment.responsibleName.toLowerCase().includes(value)
-    //})
+     this.reservas = this.allReservas.filter(reserva => {
+      return reserva.descricaoVeiculo!.toLowerCase().includes(value)
+    })
 
   }
 

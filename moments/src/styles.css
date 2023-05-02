@@ -90,11 +90,12 @@ color: #007bff;
 .edit-btn path:hover{
 color: #fff;
 background-color: #007bff;
+border-color: #fff;
 }
 
 .remove-btn,
 .remove-btn path{
-border-color: #fff;
+border-color: #dc3545;
 color: #dc3545;
 }
 
@@ -102,4 +103,5 @@ color: #dc3545;
 .remove-btn path:hover{
 color: #fff;
 background-color: #dc3545;
+border-color: #fff;
 }
