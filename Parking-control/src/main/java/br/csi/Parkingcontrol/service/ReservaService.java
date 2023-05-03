@@ -23,6 +23,7 @@ public class ReservaService {
     @Transactional
     public ReservaModel save(ReservaModel reservaModel) {
         System.out.println(reservaModel);
+        
         return reservaRepository.save(reservaModel);
     }
 
