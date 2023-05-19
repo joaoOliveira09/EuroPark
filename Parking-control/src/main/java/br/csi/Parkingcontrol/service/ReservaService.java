@@ -36,10 +36,9 @@ public class ReservaService {
         if (vagaModel.getValorPelaVaga() != null) {
             reservaModel.setValorPagamento(diferencaEmDias * vagaModel.getValorPelaVaga());
         }
-        System.out.println(reservaModel.getVaga().getReservadoOuNao());
+        // System.out.println(reservaModel.getVaga().getReservadoOuNao());
         return reservaRepository.save(reservaModel);
     }
-
 
     public ArrayList<ReservaModel> findAll() {
         return (ArrayList<ReservaModel>) reservaRepository.findAll();
