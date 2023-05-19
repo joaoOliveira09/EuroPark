@@ -1,9 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { faEdit, faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faEdit, faSearch,faTimes } from '@fortawesome/free-solid-svg-icons';
 import { Reserva } from 'src/app/interfaces/Reserva';
 import { Usuario } from 'src/app/interfaces/usuario';
 import { JwtService } from 'src/app/security/jwt.service';
 import { ReservaService } from 'src/app/services/reserva.service';
+
 
 @Component({
   selector: 'app-minhas-reservas',
@@ -13,6 +14,7 @@ import { ReservaService } from 'src/app/services/reserva.service';
 export class MinhasReservasComponent implements OnInit {
 
   faSearch = faSearch
+  faTimes = faTimes
   searchTerm: string = ''
   faEdit = faEdit
   reservas: Reserva[] = []
@@ -47,6 +49,12 @@ export class MinhasReservasComponent implements OnInit {
       return reserva.descricaoVeiculo!.toLowerCase().includes(value)
     })
 
+  }
+
+  removeHandler(){
+  //   this.momentService.removeMoment(id).subscribe()
+  //  this.messageService.add("Vaga Excluida com sucesso!")
+  //  this.router.navigate(['/home'])
   }
 
 }

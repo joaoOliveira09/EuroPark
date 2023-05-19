@@ -70,8 +70,8 @@ export class ReservaFormComponent implements OnInit {
       return
     }
     const vaga: ParkingControl = {
-      id_vaga : this.route.snapshot.paramMap.get("id_vaga")!
-
+      id_vaga : this.route.snapshot.paramMap.get("id_vaga")!,
+      reservadoOuNao: true
     }
     const user: Usuario = {
       userId : this.jwt.getTokenSub()
@@ -83,7 +83,8 @@ export class ReservaFormComponent implements OnInit {
     
     console.log(this.reservaForm.value)
 
-    this.reservaService.createReserva(this.reservaForm.value).subscribe()
+   this.reservaService.createReserva(this.reservaForm.value).subscribe()
+   
   }
 
 }

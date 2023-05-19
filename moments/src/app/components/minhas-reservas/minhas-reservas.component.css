@@ -1,12 +1,14 @@
 .input{
     color: #fff;
     background-color: #007bff;
+    margin-bottom: 10px;
 }
 .input:hover{
     color: #007bff;
     background-color: #fff;
     border-color: #007bff;
 }
+
 h1{
     font-size: 26px;
 }
@@ -33,7 +35,7 @@ h1{
 }
 
 .card{
-    width: 15em;
+    width: 18em;
     border-radius: .4rem;
     background: #fff;
     text-align: center;

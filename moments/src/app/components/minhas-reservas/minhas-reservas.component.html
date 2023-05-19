@@ -17,7 +17,11 @@
             <h3>Data Final: {{reserva.dataFinal}}</h3>
             <h3>Valor Pago: {{reserva.valorPagamento}}</h3>
              <h3>Pagamento: {{reserva.formaPagamento}}</h3> 
-             <input class="input" type="submit" routerLink="edit" value="Editar">  
+             <input class="input" type="submit" routerLink="edit" value="Editar">
+ 
+                 <button class="remove-btn" (click)="(reserva.id_reserva)">
+                    Disponibizar Reserva
+                </button>
             </div>
        </div>
    </div>

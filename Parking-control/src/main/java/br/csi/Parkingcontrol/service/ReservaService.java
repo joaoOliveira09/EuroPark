@@ -1,11 +1,16 @@
 package br.csi.Parkingcontrol.service;
 
+import java.time.temporal.Temporal;
 import java.util.ArrayList;
 import java.util.Optional;
 import java.util.UUID;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+import java.util.concurrent.TimeUnit;
 
 import javax.transaction.Transactional;
 
+import br.csi.Parkingcontrol.model.VagaModel;
 import org.springframework.stereotype.Service;
 
 import br.csi.Parkingcontrol.model.ReservaModel;
@@ -22,7 +27,16 @@ public class ReservaService {
 
     @Transactional
     public ReservaModel save(ReservaModel reservaModel) {
-        System.out.println(reservaModel);
+        VagaModel vagaModel = new VagaModel();
+        long diferencaEmMilissegundos = reservaModel.getDataFinal().getTime() - reservaModel.getDataInicial().getTime();
+        // Calcula a diferença em dias
+        long diferencaEmDias = TimeUnit.DAYS.convert(diferencaEmMilissegundos, TimeUnit.MILLISECONDS);
+        System.out.println(diferencaEmDias);
+        reservaModel.setQtdDias((int) diferencaEmDias);
+        if(vagaModel.getValorPelaVaga() != null){
+            reservaModel.setValorPagamento(diferencaEmDias * vagaModel.getValorPelaVaga());
+        }
+        System.out.println(reservaModel.getVaga().getReservadoOuNao());
         return reservaRepository.save(reservaModel);
     }
 

@@ -9,6 +9,7 @@ import { Reserva } from '../interfaces/Reserva';
 import jwt_decode from 'jwt-decode'
 import { Usuario } from '../interfaces/usuario';
 import { UsuariosService } from './usuarios.service';
+import { MomentService } from './vaga.service';
 
 @Injectable({
   providedIn: 'root'
@@ -23,7 +24,8 @@ export class ReservaService {
   constructor(private http: HttpClient,
     private messageService: MessagesService,
      private router: Router, 
-     private usuarioService: UsuariosService) { }
+     private usuarioService: UsuariosService,
+     private vagaService: MomentService) { }
 
   getReservas(): Observable<Reserva[]> {
     return this.http.get<Reserva[]>(this.apiUrl)
@@ -42,17 +44,9 @@ export class ReservaService {
   createReserva(formData: Reserva): Observable<Reserva | boolean>{
     console.log(formData)
 
-// const dataInicial = new Date(formData.dataInicial!)
-// const dataFinal = new Date(formData.dataInicial!)
-// console.log(dataInicial)
-// console.log(dataFinal)
-// const diferenca = Math.abs(dataFinal.getTime() - dataInicial.getTime());
-
-
     return this.http.post<Reserva>(this.apiUrl, formData).pipe(
       tap(()=>{
-      this.messageService.add('Reserva adicionada com Sucesso')
-
+      this.messageService.add('Reserva adicionada com Sucesso')  
         this.router.navigate(['/home'])
   }),
       catchError((error)=>{
