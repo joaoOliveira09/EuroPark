@@ -33,15 +33,13 @@ public class ReservaService {
         long diferencaEmDias = TimeUnit.DAYS.convert(diferencaEmMilissegundos, TimeUnit.MILLISECONDS);
         System.out.println(diferencaEmDias);
         reservaModel.setQtdDias((int) diferencaEmDias);
-        if(vagaModel.getValorPelaVaga() != null){
+        if (vagaModel.getValorPelaVaga() != null) {
             reservaModel.setValorPagamento(diferencaEmDias * vagaModel.getValorPelaVaga());
         }
         System.out.println(reservaModel.getVaga().getReservadoOuNao());
         return reservaRepository.save(reservaModel);
     }
 
-    
-    
     public ArrayList<ReservaModel> findAll() {
         return (ArrayList<ReservaModel>) reservaRepository.findAll();
     }
@@ -65,20 +63,20 @@ public class ReservaService {
         reservaModel2.setVaga(reservaModel.getVaga());
         reservaModel2.setFormaPagamento(reservaModel.getFormaPagamento());
         reservaModel2.setQtdDias(reservaModel.getQtdDias());
-//        if (!vagaModel.getNumeroVaga() == 0);
-//            vagaModel2.setNumeroVaga(vagaModel.getNumeroVaga());
-//        if (!vagaModel.getValorPelaVaga().isEmpty())
-//            vagaModel2.setValorPelaVaga(vagaModel.getValorPelaVaga());
+        // if (!vagaModel.getNumeroVaga() == 0);
+        // vagaModel2.setNumeroVaga(vagaModel.getNumeroVaga());
+        // if (!vagaModel.getValorPelaVaga().isEmpty())
+        // vagaModel2.setValorPelaVaga(vagaModel.getValorPelaVaga());
 
-//        if (!vagaModel.getParkingSpotNumber().isEmpty())
-//            vagaModel2.setParkingSpotNumber(vagaModel.getParkingSpotNumber());
-//        if (!vagaModel.getResponsibleName().isEmpty())
-//            vagaModel2.setResponsibleName(vagaModel.getResponsibleName());
-//        if (!vagaModel.getImage().isEmpty())
-//            vagaModel2.setImage(vagaModel.getImage());
+        // if (!vagaModel.getParkingSpotNumber().isEmpty())
+        // vagaModel2.setParkingSpotNumber(vagaModel.getParkingSpotNumber());
+        // if (!vagaModel.getResponsibleName().isEmpty())
+        // vagaModel2.setResponsibleName(vagaModel.getResponsibleName());
+        // if (!vagaModel.getImage().isEmpty())
+        // vagaModel2.setImage(vagaModel.getImage());
 
         reservaRepository.flush();
         return reservaModel2;
     }
-    
+
 }
